@@ -29,14 +29,14 @@ Arduino IDE: https://www.arduino.cc/en/software
 Zahtevane namestitve:
 * ESP32 board
 	* dodaj https://dl.espressif.com/dl/package_esp32_index.json na seznam Additional Boards Manager URLs v nastavitvah Arduino IDE (Preferences)
-	* select 
+	* v Tools &rarr;Board izberi ESP32 Arduino &rarr; ESP32 Dev Module
 * knjižnica WiFi (za komunikacijo med osebnim računalnikom in robotsko roko)
 * knjižnica ESPmDNS (za podporo DNS zahtevtkom na ESP čipu)
 * knjižnica WebServer (če želimo lokalni strežnik za dohodne HTTP zahtevke)
 * knjižnica HTTPClient (za pošiljanje izhodnih HTTP sporočil)
 * knjižnica ArduinoJson library (za oblikovanje HTTP sporočil v JSON formatu)
 
-Povezava na WiFi omrežje:
+### Povezava na WiFi omrežje:
 * nastavitev imena omrežja in gesla za dostop (izven setup in loop funkcij):
 ```
 const char* ssid     = "IME OMREŽJA";
@@ -52,7 +52,7 @@ while (WiFi.status() != WL_CONNECTED) {
 Serial.println(WiFi.localIP());  // dodeljeni IP naslov v WiFi omrežju
 ```
 
-Pošiljanje HTTP zahtevkov na robotsko roko:
+### Pošiljanje HTTP zahtevkov na robotsko roko:
 * ustvarjanje HTTP klienta: 
 ```
 HTTPClient http;
@@ -79,3 +79,6 @@ else {
 	Serial.println(http.errorToString(httpCode).c_str());
 }
 ```
+
+### Vzpostavitev lokalnega strežnika
+
