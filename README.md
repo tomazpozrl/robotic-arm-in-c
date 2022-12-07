@@ -41,13 +41,17 @@ Povezava na WiFi omrežje:
 	* <code>const char* ssid     = "IME OMREŽJA";</code>
 	* <code>const char* password = "GESLO";</code>
 * vzpostavitev povezave (v setup funkciji):
-	<code>WiFi.begin(ssid, password);</code>
-	<code>while (WiFi.status() != WL_CONNECTED) {
+```
+{
+	WiFi.begin(ssid, password);
+	while (WiFi.status() != WL_CONNECTED) {
 		delay(500);
 		Serial.print(".");
-	}</code>
-	<code>Serial.println(WiFi.localIP());</code>  (dodeljeni IP naslov v WiFi omrežju)
-	
+	}
+	Serial.println(WiFi.localIP());  // dodeljeni IP naslov v WiFi omrežju
+	}
+```
+
 Pošiljanje HTTP zahtevkov na robotsko roko:
 * ustvarjanje HTTP klienta: <code>HTTPClient http;</code>
 * ustvarjanje HTTP sporočila: <code>http.begin(roboticArmHttpApiIp, roboticArmHttpApiPort, "/");</code>
