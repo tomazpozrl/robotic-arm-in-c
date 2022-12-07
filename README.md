@@ -13,12 +13,12 @@ https://github.com/fsprojekti/shr-mfg-robotic-arm-http-server
 joy-it SBC NodeMCU-ESP32 plošča: https://joy-it.net/en/products/SBC-NodeMCU-ESP32
 
 Glavne značilnosti:
-* procesor: Tensilica LX6 Dual-Core, 240 MHz
-* spomin: 4 MB, SRAM: 512 kb
-* wifi: 802.11 b/g/n, 2,4 GHz
-* bluetooth: classic/LE
-* vmesniki: UART, I2C, SPI, DAC, ADC
-* delovna napetost: 3,3 V (5 V microUSB)
+* ***procesor***: Tensilica LX6 Dual-Core, 240 MHz
+* ***spomin***: 4 MB, SRAM: 512 kb
+* ***wifi***: 802.11 b/g/n, 2,4 GHz
+* ***bluetooth***: classic/LE
+* ***vmesniki***: UART, I2C, SPI, DAC, ADC
+* ***delovna napetost***: 3,3 V (5 V microUSB)
 
 Priročnik: https://joy-it.net/files/files/Produkte/SBC-NodeMCU-ESP32/SBC-NodeMCU-ESP32-Manual-2021-06-29.pdf
 
@@ -29,12 +29,12 @@ Arduino IDE: https://www.arduino.cc/en/software
 Zahtevane namestitve:
 * ESP32 board
 	* dodaj https://dl.espressif.com/dl/package_esp32_index.json na seznam Additional Boards Manager URLs v nastavitvah Arduino IDE (Preferences)
-	* v Tools &rarr;Board izberi ESP32 Arduino &rarr; ESP32 Dev Module
-* knjižnica WiFi (za komunikacijo med osebnim računalnikom in robotsko roko)
-* knjižnica ESPmDNS (za podporo DNS zahtevtkom na ESP čipu)
-* knjižnica WebServer (če želimo lokalni strežnik za dohodne HTTP zahtevke)
-* knjižnica HTTPClient (za pošiljanje izhodnih HTTP sporočil)
-* knjižnica ArduinoJson library (za oblikovanje HTTP sporočil v JSON formatu)
+	* v Tools &rarr; Board izberi ESP32 Arduino &rarr; ESP32 Dev Module
+* knjižnica ***WiFi** (za komunikacijo med osebnim računalnikom in robotsko roko)
+* knjižnica ***ESPmDNS*** (za podporo DNS zahtevtkom na ESP čipu)
+* knjižnica ***WebServer*** (če želimo lokalni strežnik za dohodne HTTP zahtevke)
+* knjižnica ***HTTPClient*** (za pošiljanje izhodnih HTTP sporočil)
+* knjižnica ***ArduinoJson*** library (za oblikovanje HTTP sporočil v JSON formatu)
 
 ### Povezava na WiFi omrežje:
 * nastavitev imena omrežja in gesla za dostop (izven setup in loop funkcij):
