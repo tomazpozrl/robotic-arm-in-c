@@ -41,27 +41,26 @@ Povezava na WiFi omrežje:
 	* <code>const char* ssid     = "IME OMREŽJA";</code>
 	* <code>const char* password = "GESLO";</code>
 * vzpostavitev povezave (v setup funkciji):
-	* <code>WiFi.begin(ssid, password);</code>
-	* <code>while (WiFi.status() != WL_CONNECTED) {
+	<code>WiFi.begin(ssid, password);</code>
+	<code>while (WiFi.status() != WL_CONNECTED) {
 		delay(500);
 		Serial.print(".");
-	  }</code>
-	* <code>Serial.println(WiFi.localIP());</code>  (dodeljeni IP naslov v WiFi omrežju)
+	}</code>
+	<code>Serial.println(WiFi.localIP());</code>  (dodeljeni IP naslov v WiFi omrežju)
 	
 Pošiljanje HTTP zahtevkov na robotsko roko:
 * ustvarjanje HTTP klienta: <code>HTTPClient http;</code>
 * ustvarjanje HTTP sporočila: <code>http.begin(roboticArmHttpApiIp, roboticArmHttpApiPort, "/");</code>
 * pošiljanje HTTP sporočila: <code>int httpCode = http.GET();</code>
 * preverjanje odgovora (v primeru napake je HTTP koda negativna):
-    * <code>if (httpCode > 0) {
-			// HTTP header has been send and Server response header has been handled
-			Serial.println("HTTP response code: " + String(httpCode));
-			Serial.println("HTTP response: " + http.getString());
-
-		}
-		// error sending HTTP request, print error messasge
-		else {
-			Serial.println("HTTP response code: " + String(httpCode));
-			Serial.println("HTTP GET failed, error:");
-			Serial.println(http.errorToString(httpCode).c_str());
-		}</code>
+	<code>if (httpCode > 0) {
+	// HTTP header has been send and Server response header has been handled
+	    Serial.println("HTTP response code: " + String(httpCode));
+		Serial.println("HTTP response: " + http.getString());
+	}
+	// error sending HTTP request, print error messasge
+	else {
+		Serial.println("HTTP response code: " + String(httpCode));
+		Serial.println("HTTP GET failed, error:");
+		Serial.println(http.errorToString(httpCode).c_str());
+	}</code>
