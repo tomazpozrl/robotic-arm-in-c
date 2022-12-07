@@ -26,13 +26,27 @@ Priročnik: https://joy-it.net/files/files/Produkte/SBC-NodeMCU-ESP32/SBC-NodeMC
 
 Arduino IDE: https://www.arduino.cc/en/software
 
-Required installations:
+Zahtevane namestitve:
 * ESP32 board
-	* add https://dl.espressif.com/dl/package_esp32_index.json to the Additional Boards Manager URLs list in Preferences section of Arduino IDE
+	* dodaj https://dl.espressif.com/dl/package_esp32_index.json na seznam Additional Boards Manager URLs v nastavitvah Arduino IDE (Preferences)
 	* select 
-* WiFi library (for communication via WiFi)
-* ESPmDNS library (for DNS query support on ESP chip)
-* WebServer library (if a local server will be run for incoming requests)
-* HTTPClient library (for sending outgoing HTTP messages)
-* ArduinoJson library (for formatting HTTP message in JSON format)
+* knjižnica WiFi (za komunikacijo med osebnim računalnikom in robotsko roko)
+* knjižnica ESPmDNS (za podporo DNS zahtevtkom na ESP čipu)
+* knjižnica WebServer (če želimo lokalni strežnik za dohodne HTTP zahtevke)
+* knjižnica HTTPClient (za pošiljanje izhodnih HTTP sporočil)
+* knjižnica ArduinoJson library (za oblikovanje HTTP sporočil v JSON formatu)
 
+Povezava na WiFi omrežje:
+* nastavitev imena omrežja in gesla za dostop (izven setup in loop funkcij):
+	* const char* ssid     = "IME OMREŽJA";
+	* const char* password = "GESLO";
+* vzpostavitev povezave (v setup funkciji):
+	* WiFi.begin(ssid, password);
+	* while (WiFi.status() != WL_CONNECTED) {
+		delay(500);
+		Serial.print(".");
+	  }
+	* Serial.println(WiFi.localIP());  (IP naslov v WiFi omrežju)
+	
+Pošiljanje HTTP zahtevkov na robotsko roko:
+* ustvarjanje HTTP klienta: HTTPClient http;
