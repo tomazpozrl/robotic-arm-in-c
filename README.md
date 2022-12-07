@@ -46,7 +46,23 @@ Povezava na WiFi omrežje:
 		delay(500);
 		Serial.print(".");
 	  }
-	* Serial.println(WiFi.localIP());  (IP naslov v WiFi omrežju)
+	* Serial.println(WiFi.localIP());  (dodeljeni IP naslov v WiFi omrežju)
 	
 Pošiljanje HTTP zahtevkov na robotsko roko:
 * ustvarjanje HTTP klienta: HTTPClient http;
+* ustvarjanje HTTP sporočila: http.begin(roboticArmHttpApiIp, roboticArmHttpApiPort, "/");
+* pošiljanje HTTP sporočila: int httpCode = http.GET();
+* preverjanje odgovora:
+	* // v primeru napake je HTTP koda negativna
+    if (httpCode > 0) {
+        // HTTP header has been send and Server response header has been handled
+        Serial.println("HTTP response code: " + String(httpCode));
+        Serial.println("HTTP response: " + http.getString());
+
+    }
+    // error sending HTTP request, print error messasge
+    else {
+        Serial.println("HTTP response code: " + String(httpCode));
+        Serial.println("HTTP GET failed, error:");
+        Serial.println(http.errorToString(httpCode).c_str());
+    }
