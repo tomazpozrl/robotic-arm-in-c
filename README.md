@@ -38,15 +38,15 @@ Zahtevane namestitve:
 
 Povezava na WiFi omrežje:
 * nastavitev imena omrežja in gesla za dostop (izven setup in loop funkcij):
-	* const char* ssid     = "IME OMREŽJA";
-	* const char* password = "GESLO";
+	* <code>const char* ssid     = "IME OMREŽJA";</code>
+	* <code>const char* password = "GESLO";</code>
 * vzpostavitev povezave (v setup funkciji):
-	* WiFi.begin(ssid, password);
+	* <code>WiFi.begin(ssid, password);
 	* while (WiFi.status() != WL_CONNECTED) {
 		delay(500);
 		Serial.print(".");
 	  }
-	* Serial.println(WiFi.localIP());  (dodeljeni IP naslov v WiFi omrežju)
+	* Serial.println(WiFi.localIP());</code>  (dodeljeni IP naslov v WiFi omrežju)
 	
 Pošiljanje HTTP zahtevkov na robotsko roko:
 * ustvarjanje HTTP klienta: <code>HTTPClient http;</code>
@@ -54,7 +54,7 @@ Pošiljanje HTTP zahtevkov na robotsko roko:
 * pošiljanje HTTP sporočila: <code>int httpCode = http.GET();</code>
 * preverjanje odgovora:
 	* // v primeru napake je HTTP koda negativna
-    </code>if (httpCode > 0) {
+    <code>if (httpCode > 0) {
         // HTTP header has been send and Server response header has been handled
         Serial.println("HTTP response code: " + String(httpCode));
         Serial.println("HTTP response: " + http.getString());
