@@ -82,3 +82,40 @@ else {
 
 ### Vzpostavitev lokalnega strežnika
 
+* ustvarjanje strežnika (izven setup in loop funkcij)
+```
+WebServer server(8000); // 8000 je port, na katerem bo tekel strežnik
+```
+
+* nastavitev API endpointov (v setup funkciji)
+```
+ server.on("/", handleRoot); // za vsak endpoint se nastavi, katera funkcija naj se izvede, ko klient dostopa do endpointa
+ server.onNotFound(handleNotFound); // funkcija, ki se izvede, če klient želi dostopati do endpointa, ki ni definiran
+```
+
+* definicija funkcij za upravljanje (izven setup in loop funkcij)
+```
+void handleRoot() {
+  Serial.println("received a request to /");
+  server.send(200, "text/plain", "Hello from ESP32 board");
+}
+
+void handleNotFound() {
+  String message = "File Not Found\n\n";
+  message += "URI: ";
+  message += server.uri();
+  message += "\nMethod: ";
+  message += (server.method() == HTTP_GET) ? "GET" : "POST";
+  message += "\nArguments: ";
+  message += server.args();
+  message += "\n";
+  for (uint8_t i = 0; i < server.args(); i++) {
+    message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
+  }
+  server.send(404, "text/plain", message);
+}
+```
+* zagon strežnika (v setup funkciji)
+```
+server.begin();
+```
