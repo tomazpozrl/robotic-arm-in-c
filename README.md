@@ -120,7 +120,7 @@ void handleNotFound() {
 server.begin();
 ```
 
-## Naloge za študente
+## Možne naloge za študente
 
 ### stanje robotske roke
 * ugotovitev lokacije robotske roke (x,y,z), stanja servo motorjev in robotskih sklepov, PWM signalov in aktivnost sesanja
