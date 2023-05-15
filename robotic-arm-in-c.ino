@@ -12,11 +12,8 @@ bool busy = false; // default: false
 bool startFlag = false;
 
 // **************** WiFi parameters *********************
-const char* ssid     = "DESKTOP-4NT77NL-4917";
-const char* password = "TPlaptopHOTSPOT";
-
-// const char* ssid     = "TP-LINK_0B69";
-// const char* password = "29205820";
+const char* ssid     = "NSSM";
+const char* password = "NSSM1234";
 
 WebServer server(8000);
 
