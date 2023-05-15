@@ -30,7 +30,7 @@ HTTPClient http;
 void handleRoot() {
 
   Serial.println("received a request to /");
-  server.send(200, "text/plain", "Hello from DF micro:Maqueen Plus!");
+  server.send(200, "text/plain", "Hello from HiWonder Jetmax JETSON NANO!");
 }
 
 void handleNotFound() {
@@ -69,7 +69,7 @@ void setup() {
   Serial.println("MAC address: ");
   Serial.println(WiFi.macAddress());
 
-  // start the local server (for incoming requests to the robot car)
+  // start the local server (for incoming requests to the robotic arm)
   if (MDNS.begin("esp32")) {
     Serial.println("MDNS responder started");
   }
@@ -94,10 +94,9 @@ void loop() {
 
   // Serial.println("robot state: " + String(state));
 
-
-  // car robot driving algorithm
+  // robotic arm HTTP API endpoints test
   switch (state) {
-    // default case, the car is free (busy = false) and waits for the next request to move
+    // default case, request for the current state of the robotic arm
     case 1: {
         // Serial.println("case 1 ...");
         String httpURL = roboticArmHttpApiIp + ":" + String(roboticArmHttpApiPort) + "/";
@@ -122,6 +121,7 @@ void loop() {
         }
         break;
       }
+	  // testing absolute move
     case 2: {
         // Serial.println("case 2 ...");
         String httpURL = roboticArmHttpApiIp + ":" + String(roboticArmHttpApiPort) + "/basic/moveTo";
@@ -146,6 +146,7 @@ void loop() {
         }
         break;
       }
+	  // testing relative move
     case 3: {
         // Serial.println("case 3 ...");
         String httpURL = roboticArmHttpApiIp + ":" + String(roboticArmHttpApiPort) + "/basic/move";
@@ -171,6 +172,7 @@ void loop() {
         }
         break;
       }
+	  // testing suction
     case 4: {
         // Serial.println("case 4 ...");
         String httpURL = roboticArmHttpApiIp + ":" + String(roboticArmHttpApiPort) + "/basic/suction";
