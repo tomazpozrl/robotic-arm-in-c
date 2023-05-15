@@ -119,28 +119,3 @@ void handleNotFound() {
 ```
 server.begin();
 ```
-
-## Možne naloge za študente
-
-### stanje robotske roke
-* ugotovitev lokacije robotske roke (x,y,z), stanja servo motorjev in robotskih sklepov, PWM signalov in aktivnost sesanja
-### Premiki robotske roke
-* premik po x/y/z osi na določeno lokacijo (absolutni premik)
-* premik po x/y/z osi za določeno razdaljo (relativni premik)
-### Kamera
-* zajem slike s kamere
-* določitev oddaljenosti predmeta (nameščen AprilTag)
-### Premik predmetov
-* vklop hidravličnega sesanja
-* premik predmeta na drugo lokacijo
-### kombinirane naloge
-* premik predmeta:
-	* pridobite stanja roke (lokacija)
-	* premik po xy ravnini relativno od trenutne do končne lokacije
-	* premik po z osi nad predmet
-	* slikanje predmeta 
-	* določitev oddaljenosti in izračun potrebnega premika navzdol točno do predmeta
-	* vklop sesanja
-	* premik po z osi gor
-	* premik po xy ravnini relativno od trenutne do končne lokacije
-	* premik po z osi navzdol do končne višine
